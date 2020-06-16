@@ -1,0 +1,2 @@
+127.0.0.1 - - [16/Jun/2020:18:06:23 -0300] "GET /cadena_axis_one/services/CadenaAxisOne?wsdl HTTP/1.1" 200 14567 http-bio-8000-exec-1 1112
+127.0.0.1 - - [16/Jun/2020:18:06:28 -0300] "POST /cadena_axis_one/services/CadenaAxisOne.CadenaAxisOneHttpSoap11Endpoint/ HTTP/1.1" 200 1643 http-bio-8000-exec-2 1117
