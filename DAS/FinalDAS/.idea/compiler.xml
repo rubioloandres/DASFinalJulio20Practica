@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cadena_axis_one" />
+        <module name="cadena_axis_two" />
         <module name="cadena_core" />
         <module name="cadena_cxf_one" />
         <module name="cadena_cxf_two" />
@@ -19,9 +20,12 @@
         <module name="maven-archiver (1)" />
         <module name="maven-archiver (2)" />
         <module name="maven-archiver (3)" />
-        <module name="maven-archiver (4)" />
         <module name="maven-archiver (5)" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cadena_axis_two" target="1.8" />
+      <module name="maven-archiver (4)" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

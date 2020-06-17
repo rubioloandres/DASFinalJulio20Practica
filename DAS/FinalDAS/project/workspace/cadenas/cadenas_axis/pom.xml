@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>cadena_axis_one</module>
+        <module>cadena_axis_two</module>
     </modules>
     <!-- Dependency properties -->
     <properties>

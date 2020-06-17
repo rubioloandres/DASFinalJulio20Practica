@@ -1,0 +1,10 @@
+<serviceGroup>
+	<service name="CadenaAxisTwo" targetNamespace="http://ws.CadenaAxisTwo/">
+		<description>JNLPGenerator service</description>
+		<schema schemaNamespace="http://ws.CadenaAxisTwo/"/>
+		<parameter name="ServiceClass" locked="false">ws.CadenaAxisTwo</parameter>
+		<operation name="ping">
+			<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+		</operation>
+	</service>
+</serviceGroup>

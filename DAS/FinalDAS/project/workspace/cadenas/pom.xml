@@ -71,6 +71,35 @@
         </properties>
     </profile>
 
+        <!-- AXIS TWO PROFILE -->
+    <profile>
+        <id>cadena_axis_two_profile_id</id>
+        <activation>
+            <property>
+                <name>env</name>
+                <value>cadena_axis_two_env</value>
+            </property>
+        </activation>
+        <properties>
+            <!-- SERVER -->
+            <tomcat.server>CadenaAxisTwoService</tomcat.server>
+            <tomcat.url>http://localhost:8080/manager/text</tomcat.url>
+            <tomcat.path>/${project.build.finalName}</tomcat.path>
+            <tomcat.port>8000</tomcat.port>
+
+            <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+            <webResources.resource.directory>/src/main/resources</webResources.resource.directory>
+            <webResources.resource.targetPath>WEB-INF/wsdl</webResources.resource.targetPath>
+            <includePattern>*.wsdl</includePattern>
+            <!-- DB -->
+            <driverDB>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverDB>
+            <urlDB>jdbc:sqlserver://192.168.99.100:1440;databaseName=db_cadena;</urlDB><!-- local -->
+            <usernameDB>SA</usernameDB>
+            <passwordDB>Das12345</passwordDB>
+            <contextDB>cadena_axis_two</contextDB>
+        </properties>
+    </profile>
+
     <!-- REST PROFILES -->
         <!-- REST ONE PROFILE -->
     <profile>

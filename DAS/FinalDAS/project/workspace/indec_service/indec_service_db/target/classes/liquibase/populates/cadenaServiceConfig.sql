@@ -5,3 +5,4 @@ VALUES
     , (3,5,2,'http://localhost:8001/cadena_rest_one/cadenaRestOne')               --  'Disco',
     , (4,2,2,'http://localhost:8002/cadena_rest_two/cadenaRestTwo') --Jumbo
     , (5,3,1,'http://localhost:8004/cadena_cxf_two/services/cadena_cxf_two?wsdl') -- Carrefour
+    , (6,6,1,'http://localhost:8000/cadena_axis_two/services/CadenaAxisTwo?wsdl') -- EXTRA - SUPERMAMI
