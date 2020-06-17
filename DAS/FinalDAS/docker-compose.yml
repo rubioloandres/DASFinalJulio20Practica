@@ -28,11 +28,16 @@ services:
          ports: 
             - '1438:1433'
          container_name: cxf_two
-    axis_two:
+    #axis_two:
+    #     image: 'mssql_cadena:1.0'
+    #     ports: 
+    #        - '1440:1433'
+    #     container_name: axis_two
+    rest_three:
          image: 'mssql_cadena:1.0'
-         ports: 
+         ports:
             - '1440:1433'
-         container_name: axis_two
+         container_name: rest_three
      
 
 

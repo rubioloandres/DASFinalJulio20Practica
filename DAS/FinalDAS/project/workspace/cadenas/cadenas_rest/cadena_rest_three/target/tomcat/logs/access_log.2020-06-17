@@ -1,0 +1,2 @@
+127.0.0.1 - - [17/Jun/2020:18:16:27 -0300] "POST /cadena_rest_three/cadenaRestThree/preciosSucursales?codigoentidadfederal=AR-X&localidad=Capital&codigos=7790040887909,7790040946101 HTTP/1.1" 200 1371 http-bio-8010-exec-1 1664
+127.0.0.1 - - [17/Jun/2020:18:17:51 -0300] "POST /cadena_rest_three/cadenaRestThree/preciosSucursales?codigoentidadfederal=AR-X&localidad=Capital&codigos=7790040887909,7790040946101 HTTP/1.1" 200 1371 http-bio-8010-exec-3 307

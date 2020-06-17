@@ -1,0 +1,2 @@
+127.0.0.1 - - [17/Jun/2020:18:17:52 -0300] "GET /cadena_cxf_two/services/cadena_cxf_two?wsdl HTTP/1.1" 200 7533 http-bio-8004-exec-1 418
+127.0.0.1 - - [17/Jun/2020:18:17:57 -0300] "POST /cadena_cxf_two/services/cadena_cxf_two HTTP/1.1" 200 1582 http-bio-8004-exec-2 1421

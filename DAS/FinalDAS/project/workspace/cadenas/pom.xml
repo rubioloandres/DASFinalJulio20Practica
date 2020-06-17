@@ -72,6 +72,7 @@
     </profile>
 
         <!-- AXIS TWO PROFILE -->
+        <!--
     <profile>
         <id>cadena_axis_two_profile_id</id>
         <activation>
@@ -81,9 +82,9 @@
             </property>
         </activation>
         <properties>
-            <!-- SERVER -->
+            __ SERVER __
             <tomcat.server>CadenaAxisTwoService</tomcat.server>
-            <tomcat.url>http://localhost:8080/manager/text</tomcat.url>
+            <tomcat.url>http://localhost:8085/manager/text</tomcat.url>
             <tomcat.path>/${project.build.finalName}</tomcat.path>
             <tomcat.port>8000</tomcat.port>
 
@@ -91,14 +92,15 @@
             <webResources.resource.directory>/src/main/resources</webResources.resource.directory>
             <webResources.resource.targetPath>WEB-INF/wsdl</webResources.resource.targetPath>
             <includePattern>*.wsdl</includePattern>
-            <!-- DB -->
+            __ DB __
             <driverDB>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverDB>
-            <urlDB>jdbc:sqlserver://192.168.99.100:1440;databaseName=db_cadena;</urlDB><!-- local -->
+            <urlDB>jdbc:sqlserver://192.168.99.100:1440;databaseName=db_cadena;</urlDB> __ local __
             <usernameDB>SA</usernameDB>
             <passwordDB>Das12345</passwordDB>
             <contextDB>cadena_axis_two</contextDB>
         </properties>
     </profile>
+    -->
 
     <!-- REST PROFILES -->
         <!-- REST ONE PROFILE -->
@@ -156,6 +158,36 @@
             <usernameDB>SA</usernameDB>
             <passwordDB>Das12345</passwordDB>
             <contextDB>rest_two</contextDB>
+        </properties>
+    </profile>
+
+
+    <!-- REST THREE PROFILE -->
+    <profile>
+        <id>cadena_rest_three_profile_id</id>
+        <activation>
+            <property>
+                <name>env</name>
+                <value>cadena_rest_three_env</value>
+            </property>
+        </activation>
+        <properties>
+            <!-- SERVER -->
+            <tomcat.server>CadenaRestThreeService</tomcat.server>
+            <tomcat.url>http://localhost:8090/manager/text</tomcat.url>
+            <tomcat.path>/${project.build.finalName}</tomcat.path>
+            <tomcat.port>8010</tomcat.port>
+
+            <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+            <webResources.resource.directory>/src/main/resources</webResources.resource.directory>
+            <webResources.resource.targetPath>WEB-INF/wsdl</webResources.resource.targetPath>
+            <includePattern>*.wsdl</includePattern>
+            <!-- DB -->
+            <driverDB>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverDB>
+            <urlDB>jdbc:sqlserver://192.168.99.100:1440;databaseName=db_cadena;</urlDB>
+            <usernameDB>SA</usernameDB>
+            <passwordDB>Das12345</passwordDB>
+            <contextDB>rest_three</contextDB>
         </properties>
     </profile>
 
