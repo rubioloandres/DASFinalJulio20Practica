@@ -162,7 +162,7 @@
     </profile>
 
 
-    <!-- REST THREE PROFILE -->
+    <!-- REST THREE PROFILE
     <profile>
         <id>cadena_rest_three_profile_id</id>
         <activation>
@@ -172,7 +172,7 @@
             </property>
         </activation>
         <properties>
-            <!-- SERVER -->
+            __ SERVER __
             <tomcat.server>CadenaRestThreeService</tomcat.server>
             <tomcat.url>http://localhost:8090/manager/text</tomcat.url>
             <tomcat.path>/${project.build.finalName}</tomcat.path>
@@ -182,7 +182,7 @@
             <webResources.resource.directory>/src/main/resources</webResources.resource.directory>
             <webResources.resource.targetPath>WEB-INF/wsdl</webResources.resource.targetPath>
             <includePattern>*.wsdl</includePattern>
-            <!-- DB -->
+            __ DB __
             <driverDB>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverDB>
             <urlDB>jdbc:sqlserver://192.168.99.100:1440;databaseName=db_cadena;</urlDB>
             <usernameDB>SA</usernameDB>
@@ -190,6 +190,8 @@
             <contextDB>rest_three</contextDB>
         </properties>
     </profile>
+        -->
+
 
     <!-- CXF PROFILES -->
         <!-- CXF ONE PROFILE  -->
@@ -249,6 +251,37 @@
             <contextDB>cadena_cxf_two</contextDB>
         </properties>
     </profile>
+
+        <!-- CXF THREE PROFILE  -->
+    <profile>
+        <id>cadena_cxf_three_profile_id</id>
+        <activation>
+            <property>
+                <name>env</name>
+                <value>cadena_cxf_three_env</value>
+            </property>
+        </activation>
+        <properties>
+            <!-- SERVER -->
+            <tomcat.server>CadenaCXFThreeService</tomcat.server>
+            <tomcat.url>http://localhost:8090/manager/text</tomcat.url>
+            <tomcat.path>/${project.build.finalName}</tomcat.path>
+            <tomcat.port>8010</tomcat.port>
+
+            <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+            <webResources.resource.directory>/src/main/resources</webResources.resource.directory>
+            <webResources.resource.targetPath>WEB-INF/wsdl</webResources.resource.targetPath>
+            <includePattern>*.wsdl</includePattern>
+            <!-- DB -->
+            <driverDB>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverDB>
+            <urlDB>jdbc:sqlserver://192.168.99.100:1440;databaseName=db_cadena;</urlDB>
+            <usernameDB>SA</usernameDB>
+            <passwordDB>Das12345</passwordDB>
+            <contextDB>cadena_cxf_three</contextDB>
+        </properties>
+    </profile>
+
+
     </profiles>
 
     <dependencies>

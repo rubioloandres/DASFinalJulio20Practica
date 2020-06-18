@@ -14,6 +14,7 @@
     <modules>
         <module>cadena_cxf_one</module>
         <module>cadena_cxf_two</module>
+        <module>cadena_cxf_three</module>
     </modules>
     <!-- Dependency properties -->
     <properties>

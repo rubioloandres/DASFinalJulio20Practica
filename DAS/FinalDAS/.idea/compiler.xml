@@ -10,6 +10,7 @@
         <module name="cadena_axis_two" />
         <module name="cadena_core" />
         <module name="cadena_cxf_one" />
+        <module name="cadena_cxf_three" />
         <module name="cadena_cxf_two" />
         <module name="cadena_rest_one" />
         <module name="cadena_rest_three" />
@@ -27,6 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cadena_axis_two" target="1.8" />
+      <module name="cadena_rest_three" target="1.8" />
       <module name="maven-archiver (4)" target="1.5" />
     </bytecodeTargetLevel>
   </component>

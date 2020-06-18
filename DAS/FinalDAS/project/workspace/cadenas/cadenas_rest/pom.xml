@@ -15,7 +15,7 @@
     <modules>
         <module>cadena_rest_one</module>
         <module>cadena_rest_two</module>
-        <module>cadena_rest_three</module>
+       <!-- <module>cadena_rest_three</module> -->
     </modules>
 
     <!-- Dependency properties -->

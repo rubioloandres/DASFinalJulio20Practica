@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:29 -0300] "GET /indec-services/comparador-app/menu/ HTTP/1.1" 200 69528 http-bio-9000-exec-6 5343
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:29 -0300] "GET /indec-services/comparador-app/cadenas? HTTP/1.1" 200 580 http-bio-9000-exec-5 5343
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:29 -0300] "GET /indec-services/comparador-app/categorias? HTTP/1.1" 200 3161 http-bio-9000-exec-2 5344
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:29 -0300] "GET /indec-services/comparador-app/provincias? HTTP/1.1" 200 1505 http-bio-9000-exec-3 5344
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:29 -0300] "GET /indec-services/comparador-app/localidades? HTTP/1.1" 200 47065 http-bio-9000-exec-4 5343
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:29 -0300] "GET /indec-services/comparador-app/productos HTTP/1.1" 200 22907 http-bio-9000-exec-1 5344
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:29 -0300] "GET /indec-services/comparador-app/categorias? HTTP/1.1" 200 3161 http-bio-9000-exec-12 120
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:31 -0300] "GET /indec-services/comparador-app/productos?idcategoria=2 HTTP/1.1" 200 1067 http-bio-9000-exec-3 189
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:47:31 -0300] "GET /indec-services/comparador-app/productos?idcategoria=2 HTTP/1.1" 200 1067 http-bio-9000-exec-3 166
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:48:05 -0300] "POST /indec-services/comparador-app/comparador?codigoentidadfederal=AR-X&localidad=Capital&codigos=7790040887909,7790040946101 HTTP/1.1" 200 453 http-bio-9000-exec-1 20841
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:52:07 -0300] "POST /indec-services/comparador-app/comparador?codigoentidadfederal=AR-X&localidad=Capital&codigos=7790040887909,7790040946101 HTTP/1.1" 200 2073 http-bio-9000-exec-5 10183
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:53:15 -0300] "POST /indec-services/comparador-app/comparador?codigoentidadfederal=AR-X&localidad=Capital&codigos=7790040887909,7790040946101 HTTP/1.1" 200 3677 http-bio-9000-exec-12 10278
+0:0:0:0:0:0:0:1 - - [18/Jun/2020:10:54:04 -0300] "POST /indec-services/comparador-app/comparador?codigoentidadfederal=AR-X&localidad=Capital&codigos=7790040887909,7790040946101 HTTP/1.1" 200 5287 http-bio-9000-exec-9 10330

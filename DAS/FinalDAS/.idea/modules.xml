@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/project/workspace/cadenas/cadenas_axis/cadena_axis_two/cadena_axis_two.iml" filepath="$PROJECT_DIR$/project/workspace/cadenas/cadenas_axis/cadena_axis_two/cadena_axis_two.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project/workspace/cadenas/cadenas_rest/cadena_rest_three/cadena_rest_three.iml" filepath="$PROJECT_DIR$/project/workspace/cadenas/cadenas_rest/cadena_rest_three/cadena_rest_three.iml" />
     </modules>
   </component>
 </project>
