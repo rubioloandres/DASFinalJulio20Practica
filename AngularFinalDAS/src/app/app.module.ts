@@ -59,6 +59,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatListModule } from '@angular/material/list';
+import { SucsearchfilterComponent } from './components/sucsearchfilter/sucsearchfilter.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -77,7 +79,8 @@ import { MatListModule } from '@angular/material/list';
     HealthComponent,
     PricetableplateComponent,
     FooterComponent,
-    DialogPlatoComponent
+    DialogPlatoComponent,
+    SucsearchfilterComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +115,8 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatRadioModule,
     FlexLayoutModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ],
   providers: [
     CategoriasService,

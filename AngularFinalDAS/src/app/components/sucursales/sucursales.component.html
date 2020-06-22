@@ -2,6 +2,10 @@
 <div class="sucursalesContainer">
 <h2 i18n>Informacion de sucursales</h2>
 
+<div>
+  <app-sucsearchfilter></app-sucsearchfilter>
+</div>
+
 <div class="noProds" *ngIf="!(listaSucursales.length > 0 )">
   <h5 i18n>No hay sucursales para mostrar.</h5>
 </div>

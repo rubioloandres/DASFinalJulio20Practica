@@ -14,6 +14,9 @@ export class ProductosService {
   public buscarProductos(critops: CriterioBusquedaProducto): Observable<Producto[]> {
 
     const httpParams: HttpParams = this.crearHttParams(critops);
+
+    console.log(environment.webAPI + 'productos', {params: httpParams});
+
     return (
       this.http.get<Producto[]>(environment.webAPI + 'productos', {params: httpParams})
     )

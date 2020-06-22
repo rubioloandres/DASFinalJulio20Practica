@@ -39,7 +39,7 @@ export class CategoriesComponent implements OnInit, OnDestroy{
     );
  }
 
-  constructor(private data: DataSharingService,private sCat:  CategoriasService) { }
+  constructor(private data: DataSharingService, private sCat: CategoriasService) { }
 
   ngOnInit() {
     this.obtenerCategorias();
