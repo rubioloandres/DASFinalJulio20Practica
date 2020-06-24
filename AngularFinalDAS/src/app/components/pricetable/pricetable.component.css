@@ -158,3 +158,27 @@ select {
 button {
   font-family: Oswald !important;
 }
+
+.menor-precio-prod {
+  color: rgb(194, 250, 110) !important;
+}
+
+.mayor-cant-menor-precio {
+  color: rgba(145,232,66) !important;
+}
+
+.menor-precio-total {
+  color: rgb(20, 20, 173) !important;
+}
+
+.menor-precio-total-seleccionados {
+  color: rgb(91, 91, 184) !important;
+}
+
+.suc-menor-precio-total {
+  border: 2px solid rgb(20, 20, 173) !important;
+}
+
+.suc-menor-precio-total-seleccionados {
+  border: 2px solid rgb(30, 179, 199);
+}

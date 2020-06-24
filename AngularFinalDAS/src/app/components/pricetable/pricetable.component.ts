@@ -1,5 +1,3 @@
-
-
   import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
   import { Producto, ProductoPrecio } from './../../interfaces/producto';
   import { Sucursal, TotalSucursal, SucursalInfo, SucursalTablaPrecio } from './../../interfaces/sucursal';
@@ -23,6 +21,9 @@
     listaSucursales: SucursalTablaPrecio[] = new Array();
     listaSucursalesOrdenadas: SucursalTablaPrecio [] = new Array();
     listaSucursalesAnterior: SucursalTablaPrecio[] = new Array();
+
+    listaSucursalesOrdenadasPorTotal: SucursalTablaPrecio[] = new Array();
+
     listaProductos: Producto[] = new Array();
     listaCadenasDisponibles: Cadena [] = new Array();
     listaCadenasNoDisponibles: CadenaSucursal [] = new Array();
@@ -67,15 +68,42 @@
     esMejorPrecio(idCad: number, idSuc: number, idProd: string) {
       const sucursal: Sucursal = this.listaSucursalesAnterior
                                  .find (suc => (suc.idCadena === idCad) && (suc.idSucursal === idSuc));
-      const producto = sucursal.productos.find( prod => prod.codigoDeBarras === idProd);
-      if (producto !== undefined && (producto.mejorPrecio)) {
-        return true;
-      } else {
-        return false;
+      if (sucursal !== undefined) {
+        const producto = sucursal.productos.find( prod => prod.codigoDeBarras === idProd);
+        if (producto !== undefined && (producto.mejorPrecio)) {
+          return true;
+        }
       }
+      return false;
     }
 
+    ordenarPorMenorPrecioTotal(listaSucursales: SucursalTablaPrecio[]) {
+      listaSucursales.sort( (suc1, suc2) => {
+        if (suc1.total < suc2.total) {return -1; }
+        if (suc1.total > suc2.total) {return 1; }
+      });
+      return listaSucursales;
+    }
 
+    tieneMenorPrecioTotal(idCad: number, idSuc: number) {
+      const sucConMenorPrecioTotal = this.listaSucursalesOrdenadasPorTotal[0];
+      const sucursal: Sucursal = this.listaSucursalesOrdenadasPorTotal.find (suc =>
+                                (suc.idCadena === idCad) && (suc.idSucursal === idSuc));
+      if (sucursal !== undefined) {
+        if (sucursal.total === sucConMenorPrecioTotal.total) {return true; }
+      }
+      return false;
+    }
+
+    tieneMenorPrecioParcial(idCad: number, idSuc: number) {
+      const sucConMenorPrecioTotalParcial = this.listaSucursalesOrdenadasPorTotal[0];
+      const sucursal: Sucursal = this.listaSucursalesOrdenadasPorTotal.find (suc =>
+                                (suc.idCadena === idCad) && (suc.idSucursal === idSuc));
+      if (sucursal !== undefined) {
+        if (sucursal.total === sucConMenorPrecioTotalParcial.total) {return true; }
+      }
+      return false;
+    }
 
     cadenasNoDisp() {
       if ( (this.listaCadenasNoDisponibles !== null)) {
@@ -100,17 +128,20 @@
       }
       console.log(this.displayedColumns);
 
+      this.listaSucursalesOrdenadasPorTotal = this.ordenarPorMenorPrecioTotal(this.listaSucursales);
+
       this.listaSucursalesOrdenadas = this.listaSucursales.sort(  (suc1, suc2) => {
         if ( suc1.cantidadDeProductosConPrecioMasBajo > suc2.cantidadDeProductosConPrecioMasBajo) {  return -1; }
         if ( suc1.cantidadDeProductosConPrecioMasBajo < suc2.cantidadDeProductosConPrecioMasBajo) {  return 1; }
         return 0;
       });
 
-      // this.listaSucursalesOrdenadas = mejoresPrecios.concat(this.listaSucursalesOrdenadas);
-
 
       this.listaSucursalesAnterior = this.listaSucursalesOrdenadas;
       this.listaSucursalesOrdenadas = this.listaSucursalesOrdenadas.slice(0, 4);
+
+      console.log(this.listaSucursalesOrdenadas);
+
     }
 
     getProductoPriceBySucursal(sucursal: SucursalTablaPrecio, idProd: string) {
@@ -131,20 +162,15 @@
     removeProduct(idprod: string) {
 
       let carr = this.obtenerProductosCarrito();
-
       const found = carr.find(p => p.codigoDeBarras === idprod);
 
       if ( found !== undefined ) { // encontrado
         this.listaProductos = this.listaProductos.filter(p => p.codigoDeBarras !== idprod);
-
         carr = carr.filter( p => p.codigoDeBarras !== idprod );
-
         sessionStorage.setItem('carrito', JSON.stringify(carr));
-
         this.cargarUbicacion();
 
         if (this.listaProductos.length > 0) {
-
           this.listaCadenasNoDisponibles = new Array();
           this.compararPrecios(this.listaProductos);
         } else {
@@ -190,14 +216,17 @@
     }
 
     compararPrecios(productos: Producto[]) {
-      console.log('recomparando precios');
-      console.log(productos);
-      console.log( this.ubicacion.codigoEntidadFederal);
-      console.log( this.ubicacion.localidad );
+      // console.log('recomparando precios');
+      // console.log(productos);
+      // console.log( this.ubicacion.codigoEntidadFederal);
+      // console.log( this.ubicacion.localidad );
 
       this.listaSucursales = new Array();
       this.listaSucursalesOrdenadas = new Array();
       this.listaSucursalesAnterior = new Array();
+
+      this.listaSucursalesOrdenadasPorTotal = new Array();
+
       this.listaProductos = new Array();
       this.listaCadenasNoDisponibles  = new Array();
 
@@ -218,6 +247,7 @@
                     }
                 });
                   console.log('HTTP Response Comparador success');
+                  // console.log(this.listaSucursalesOrdenadasPorTotal);
                   this.loadColumns();
             }, err => {
                 console.log('HTTP Error Comparador ', err);
@@ -237,26 +267,26 @@
 
     calcularCantidadColumnas() {
 
-      let cant_columns = 1;
+      let cantColumns = 1;
       if (this.listaSucursales !== undefined) {
         if (this.screenWidth < 1012) {
-          cant_columns = 1;
+          cantColumns = 1;
         }
         if (this.screenWidth >= 1012) {
-          cant_columns = 2;
+          cantColumns = 2;
         }
         if (this.screenWidth >= 1371) {
-          cant_columns = 3;
+          cantColumns = 3;
         }
 
         if (this.screenWidth >= 1695) {
-          cant_columns = 4;
+          cantColumns = 4;
         }
 
-        if (this.listaSucursales.length < cant_columns ) {
+        if (this.listaSucursales.length < cantColumns ) {
           return this.listaSucursales.length;
         } else {
-          return cant_columns;
+          return cantColumns;
         }
       }
     }
@@ -266,6 +296,12 @@
       if (ub !== null) {
         this.ubicacion = JSON.parse(ub);
       }
+    }
+
+    cambioDeSucursalVisualizada(sucursal: SucursalTablaPrecio, indiceSuc: number) {
+
+      // TODO distinguir sucursal con menor precio total de las que se ven actualmente en la tabla
+      console.log(this.listaSucursalesOrdenadas);
     }
 
     @HostListener('window:resize', ['$event'])
