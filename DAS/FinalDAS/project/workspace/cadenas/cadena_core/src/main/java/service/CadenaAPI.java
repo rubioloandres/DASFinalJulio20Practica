@@ -1,8 +1,5 @@
 package service;
-import bean.CriterioBusquedaProductos;
-import bean.CriterioLocalizacionSucursal;
-import bean.Producto;
-import bean.Sucursal;
+import bean.*;
 import db.Bean;
 import db.DaoFactory;
 import java.sql.SQLException;
@@ -134,6 +131,85 @@ public class CadenaAPI {
         } catch (SQLException ex) {
             throw new Exception(ex.getMessage());
         }
+    }
+
+    public static String insertarMensaje (  final String nombre
+                                        , final String apellido
+                                        , final String mensaje
+                                        , final String email) throws Exception
+    {
+
+
+        if (nombre == null || nombre.trim().equals("")) {
+            throw new Exception("El_parametro_nombre_es_null_o_vacio");
+        }
+        if (apellido == null || nombre.trim().equals("")) {
+            throw new Exception("El_parametro_apellido_es_null_o_vacio");
+        }
+        if (mensaje == null || nombre.trim().equals("")) {
+            throw new Exception("El_parametro_mensaje_es_null_o_vacio");
+        }
+        if (email == null || nombre.trim().equals("")) {
+            throw new Exception("El_parametro_email_es_null_o_vacio");
+        }
+
+        try {
+
+            System.out.println("frula frula");
+
+            List<Bean> beans;
+
+            CriterioLocalizacionSucursal criterio = new CriterioLocalizacionSucursal();
+
+            // SE APLICA PARA TODAS LAS SUCURSALES
+            criterio.setCodigoEntidadFederal(null);
+            criterio.setLocalidad(null);
+            beans = DaoFactory.getDao("Sucursales")
+                    .select(criterio);
+
+            System.out.println("frula frula2");
+
+
+            List<Sucursal> sucursales;
+            sucursales = new LinkedList<>();
+            Sucursal sucursal;
+
+            for(Bean b : beans){
+                sucursal = (Sucursal) b;
+                sucursales.add(sucursal);
+            }
+
+
+            System.out.println("frula frula3 ");
+            for(Sucursal s : sucursales ){
+
+                // EN REALIDAD SE ENVIA UN SOLO MENSAJE, NO UNA LISTA DE MENSAJES
+                beans = new LinkedList<>();
+
+                Mensaje mje = new Mensaje();
+                mje.setIdSucursal(s.getIdSucursal().shortValue());
+                mje.setNombre(nombre);
+                mje.setApellido(apellido);
+                mje.setMensaje(mensaje);
+                mje.setEmail(email);
+
+                beans.add(mje);
+
+                System.out.println("frula frula4");
+
+                DaoFactory.getDao("Mensajes")
+                        .insertBatch(beans);
+
+
+
+            }
+
+            return "Salio bien";
+
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage() + "aca esta llega algo rarengue");
+        }
+
     }
 
 }

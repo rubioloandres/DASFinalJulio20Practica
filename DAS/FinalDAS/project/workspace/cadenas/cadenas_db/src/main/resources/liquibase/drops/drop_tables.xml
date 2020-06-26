@@ -7,6 +7,13 @@
 
 	<!--   TABLE DROP CHANGE-SETS      -->
 
+	<changeSet id="Drop table mensaje" author="DAS-Team" runAlways="true" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="mensaje"/>
+		</preConditions>
+		<dropTable tableName="mensaje"/>
+	</changeSet>
+
 	<changeSet id="Drop table precioProducto" author="DAS-Team" runAlways="true" runOnChange="true">
 		<preConditions onFail="MARK_RAN">
 			<tableExists tableName="precioProducto"/>

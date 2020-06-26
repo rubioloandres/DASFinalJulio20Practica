@@ -31,4 +31,13 @@ public class CadenaAxisOne {
         CadenaAPI.simularPrecios(codigoentidadfederal,localidad);
         return;
     }
+
+    public String insertarMensaje ( final String nombre
+                                , final String apellido
+                                , final String mensaje
+                                , final String email) throws Exception {
+
+        System.out.println("chega");
+        return CadenaAPI.insertarMensaje(nombre,apellido,mensaje,email);
+    }
 }

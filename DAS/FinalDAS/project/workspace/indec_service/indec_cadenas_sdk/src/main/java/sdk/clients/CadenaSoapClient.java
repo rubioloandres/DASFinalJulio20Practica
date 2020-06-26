@@ -24,6 +24,16 @@ public class CadenaSoapClient extends SoapClient implements CadenaServiceContrac
         return jsonBean;
     }
 
+    public String mensajeria(final String nombre, final String apellido, final String mensaje, final String email) throws ClientException
+    {
+
+        System.out.println("por qui tudo beim");
+        final Object object = executeMethod(INSERTAR_MENSAJE, nombre, apellido, mensaje, email);
+
+        final String estadoMensaje = object.toString();
+        return estadoMensaje;
+    }
+
 
     public List<Sucursal> sucursales
             (final String codigoentidadfederal
@@ -65,5 +75,4 @@ public class CadenaSoapClient extends SoapClient implements CadenaServiceContrac
         return sucursales;
 
     }
-
 }

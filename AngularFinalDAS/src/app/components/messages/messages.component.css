@@ -1,0 +1,41 @@
+.mensaje {
+  border: 2px solid #61d8e0;
+  width: 50%;
+  position: relative;
+  margin: auto;
+  padding: 2%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100% !important;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.example-button-row {
+  padding: 2%;
+}
+
+.botonEnviar {
+  background-color: rgb(50, 50, 156);
+  color: white;
+  font-family: Oswald !important;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+h4 {
+  font-family: Oswald !important;
+  color: black;
+  text-align: center !important;
+  font-weight: lighter;
+}

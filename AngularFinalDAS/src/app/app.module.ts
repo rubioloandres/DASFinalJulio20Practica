@@ -61,6 +61,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatListModule } from '@angular/material/list';
 import { SucsearchfilterComponent } from './components/sucsearchfilter/sucsearchfilter.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { MessagesComponent } from './components/messages/messages.component';
+import { MensajeService } from './services/indec/mensaje.service';
 
 
 @NgModule({
@@ -80,7 +82,8 @@ import { MatChipsModule } from '@angular/material/chips';
     PricetableplateComponent,
     FooterComponent,
     DialogPlatoComponent,
-    SucsearchfilterComponent
+    SucsearchfilterComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -129,7 +132,8 @@ import { MatChipsModule } from '@angular/material/chips';
     CadenasService,
     MenuService,
     CartComponent,
-    ErrorManager
+    ErrorManager,
+    MensajeService
   ],
   entryComponents: [
     DialogInfoSucursalComponent,

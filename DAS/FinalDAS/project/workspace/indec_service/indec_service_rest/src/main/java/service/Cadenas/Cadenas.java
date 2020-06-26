@@ -25,6 +25,46 @@ import static java.util.stream.Collectors.toList;
 public class Cadenas {
     private static final Logger logger = LoggerFactory.getLogger(Cadenas.class);
 
+    public static List<String> registrarMensajes(final String nombre
+                                        , final String apellido
+                                        , final String mensaje
+                                        , final String email
+                                        , final List<Configuracion> configuraciones)
+    {
+
+        return configuraciones.parallelStream()
+                       .map((config) -> registrarMensaje(nombre,apellido,mensaje,email,config))
+                       .collect(toList());
+
+    }
+
+    public static String registrarMensaje(final String nombre
+                                        , final String apellido
+                                        , final String mensaje
+                                        , final String email
+                                        , final Configuracion configuracion)
+    {
+        try{
+            CadenaServiceContract client = buildClient(configuracion);
+
+            String jsonResponse;
+
+            String registrosMensajes = client.mensajeria(nombre,apellido,mensaje,email);
+
+            final boolean hayRegistrosMensajes = registrosMensajes != null && !(registrosMensajes.equals(""));
+
+            if (hayRegistrosMensajes) {
+                return "OK";
+            } else {
+                return "ERROR";
+            }
+
+        }catch (Exception ex){
+            logger.error( ex.getMessage() );
+            return ex.getMessage();
+        }
+    }
+
     public static List<Cadena> obtenerCadenas()
     {
         try {

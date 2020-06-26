@@ -9,7 +9,9 @@ service\SimuladorDePrecios.class
 bean\Sucursal.class
 db\daos\MSPreciosProductosDao.class
 service\CadenaAPI.class
+db\daos\MSMensajesDao.class
 db\Dao.class
 bean\CriterioLocalizacionSucursal.class
+bean\Mensaje.class
 bean\CriterioBusquedaProductos.class
 db\daos\MSPreciosSucursalesDao.class

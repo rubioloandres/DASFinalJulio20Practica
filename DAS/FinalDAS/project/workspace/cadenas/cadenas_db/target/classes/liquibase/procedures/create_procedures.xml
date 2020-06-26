@@ -80,6 +80,20 @@
 		<dropProcedure procedureName="SP_INSERTPRECIOPRODUCTO"/>
 	</changeSet>
 
+	<changeSet id="Drop procedure spInsertMensaje" author="DAS-Team" runAlways="true"
+			   runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				SELECT COUNT(*)
+				FROM information_schema.routines
+				WHERE ROUTINE_TYPE = 'PROCEDURE'
+				AND SPECIFIC_CATALOG = 'db_cadena'
+				AND ROUTINE_NAME = 'SP_INSERTMENSAJE'
+			</sqlCheck>
+		</preConditions>
+		<dropProcedure procedureName="SP_INSERTMENSAJE"/>
+	</changeSet>
+
 
 
 
@@ -168,6 +182,23 @@
 				endDelimiter="\nGO"
 				splitStatements="true"
 				path="/src/main/resources/liquibase/procedures/spInsertPrecioProducto.sql"/>
+	</changeSet>
+
+	<changeSet id="Create procedure spInsertMensaje" author="DAS-Team" runAlways="true"
+			   runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT COUNT(*)
+				FROM information_schema.routines
+				WHERE ROUTINE_TYPE = 'PROCEDURE'
+				AND SPECIFIC_CATALOG = 'db_cadena'
+				AND ROUTINE_NAME = 'SP_INSERTMENSAJE'
+			</sqlCheck>
+		</preConditions>
+		<sqlFile
+				endDelimiter="\nGO"
+				splitStatements="true"
+				path="/src/main/resources/liquibase/procedures/spInsertMensaje.sql"/>
 	</changeSet>
 
 

@@ -11,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static javax.ws.rs.core.Response.Status.INTERNAL_SERVER_ERROR;
@@ -253,6 +254,46 @@ public class WebService {
         try{
             List<String> ls = ServiceHealth.traversalHealth();
             response.resume(ls.toString());
+
+        }catch(Exception exception){
+            logger.error("Endpoint Failure, {}",exception.getMessage());
+            response.resume(status(INTERNAL_SERVER_ERROR)
+                    .build());
+        }
+    }
+
+    @POST
+    @Path("/mensajeria")
+    public void registrarMensaje (@Suspended final AsyncResponse response
+                                 ,@QueryParam("nombre") final String nombre
+                                 ,@QueryParam("apellido") final String apellido
+                                 ,@QueryParam("mensaje") final String mensaje
+                                 ,@QueryParam("email") final String email)
+    {
+
+        response.setTimeout(timeOut, SECONDS);
+        response.setTimeoutHandler(
+                (resp) -> resp.resume(status(SERVICE_UNAVAILABLE)
+                        .entity("Operation timed out")
+                        .build()));
+
+        try{
+            try{
+                List<Configuracion> configuraciones = obtenerConfiguraciones();
+
+                logger.error(configuraciones.toString());
+
+                List<String> registrosDeMensajes = Cadenas.registrarMensajes(nombre,apellido,mensaje,email,configuraciones);
+
+                response.resume(toJson(registrosDeMensajes));
+
+            }catch(Exception exception){
+                logger.error("Endpoint Failure, {}",exception.getMessage());
+                response.resume(status(INTERNAL_SERVER_ERROR)
+                        .build());
+            }
+
+
 
         }catch(Exception exception){
             logger.error("Endpoint Failure, {}",exception.getMessage());

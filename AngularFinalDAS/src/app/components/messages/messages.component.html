@@ -1,0 +1,47 @@
+<h4>Puedes contactarse con cualquiera de las sucursales disponibles</h4>
+
+<form [formGroup]="form" class="example-form mensaje" (ngSubmit)="enviarMensaje($event)">
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input id="nombre" formControlName="nombre" required matInput placeholder="Ex. Andres">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input id="apellido" formControlName="apellido" required matInput placeholder="Ex. Rubiolo">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Mensaje</mat-label>
+          <textarea id="mensaje" formControlName="mensaje" required matInput placeholder="Quisiera realizar una sugerencia..."></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input id="email" formControlName="email" matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <div class="example-button-row">
+    <button type="submit" [disabled]="!form.valid" class="botonEnviar" title="Enviar mensaje" mat-raised-button>
+      Enviar
+    </button>
+  </div>
+
+</form>

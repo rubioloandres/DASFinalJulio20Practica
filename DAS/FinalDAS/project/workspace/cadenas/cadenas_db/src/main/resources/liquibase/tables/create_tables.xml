@@ -72,4 +72,13 @@
 		<sqlFile path="/src/main/resources/liquibase/tables/precioProducto.sql"/>
 	</changeSet>
 
+	<changeSet id="Create table mensaje" author="DAS-Team" runAlways="true" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="mensaje"/>
+			</not>
+		</preConditions>
+		<sqlFile path="/src/main/resources/liquibase/tables/mensaje.sql"/>
+	</changeSet>
+
 </databaseChangeLog>

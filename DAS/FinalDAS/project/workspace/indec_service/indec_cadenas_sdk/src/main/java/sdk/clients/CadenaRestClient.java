@@ -23,6 +23,11 @@ public class CadenaRestClient extends RestClient implements CadenaServiceContrac
         return call(GET, String.format(url));
     }
 
+    @Override
+    public String mensajeria(String nombre, String apellido, String mensaje, String email) throws ClientException {
+        return null;
+    }
+
 
     public List<Sucursal> sucursales(final String codigoentidadfederal, final String localidad)
             throws ClientException
